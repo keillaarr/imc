@@ -1,4 +1,4 @@
-# Curso.Club 
+# Calculador IMC
 ## Tecnologia Usada: 
 <img align="left"  height="50" width="50" title="html" src="https://github.com/tandpfun/skill-icons/blob/main/icons/HTML.svg">
 <img align="left"  height="50" width="50" title="javaScript" src="https://github.com/tandpfun/skill-icons/blob/main/icons/JavaScript.svg">
