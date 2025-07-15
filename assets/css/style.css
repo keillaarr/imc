@@ -1,165 +1,230 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Poppins:wght@100;200;300;400;500&display=swap');
+/* Reset básico */
 * {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    background-color: #18181b;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
+
 #container {
-    display: flex;
-    align-items: center;
-    gap: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
+
+#img {
+  flex: 1 1 300px;
+  background: #e0f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 #img img {
-    width: 32rem;
+  max-width: 100%;
+  height: auto;
 }
-#calculator{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
-    color: #f8fafc;
-    background-color: #262626;
-    border-radius: 8px;
 
+#calculator {
+  flex: 1 1 400px;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-#form {
-    display: flex;
-    flex-direction: column;
-    gap:2rem
+
+h1#title {
+  margin-bottom: 24px;
+  color: #00796b;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.8rem;
 }
-#title {
-    font-size: 2.25rem;
+
+.input-box {
+  margin-bottom: 20px;
 }
-#title::after {
-    position: absolute;
-    content: '';
-    background-color: #B900F5 ;
-    width: 8rem;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    border-radius: 3px;
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #004d40;
 }
-.input-box label {
-  font-size: 1.1rem;
-  color: #cbd5e1;
-  font-weight: 500;
-}
+
 .input-field {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #3f3f46;
-    padding: 0.3rem;
-    border-radius: 3px;
-    margin-top:  3px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1.8px solid #b2dfdb;
+  border-radius: 8px;
+  background: #e0f2f1;
+  padding: 0 12px;
+  transition: border-color 0.3s;
 }
-.input-field span
+
+.input-field:focus-within {
+  border-color: #00796b;
+}
+
 .input-field i {
-    color: #cbd5e1;
-    font-size: 1.3rem;
-    padding: 0.6rem 1rem;
+  color: #004d40;
+  font-size: 1.2rem;
+  margin-right: 8px;
 }
-.input-field input {
-    background-color: transparent;
-    border: none;
-    width: 100%;
-    font-size: 1.3rem;
-    color: #f8fafc;
-    padding: 0 0.5rem;
+
+input[type="number"] {
+  flex: 1;
+  border: none;
+  background: transparent;
+  height: 38px;
+  font-size: 1rem;
+  color: #004d40;
+  outline-offset: 2px;
 }
-.input-field input::-webkit-outer-spin-button
-.input-field input::-webkit-inner-spin-button {
-    appearance: none;
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-.input-field input:focus{
-    outline: none; 
+
+span {
+  color: #004d40;
+  font-weight: 600;
+  margin-left: 8px;
+  user-select: none;
 }
-#calculate {
-    font-size: 1.25rem;
-    font-weight: bold;
-    background-color: #B900F5;
-    color: #f8fafc;
-    padding: 0.5rem 0;
-    border: 3px;
-    cursor: pointer;
+
+button#calculate {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #00796b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background-color 0.3s;
 }
-.result {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    border-top: 1px solid #ffffff34;
-    padding: 0.75rem 0;
+
+button#calculate:hover,
+button#calculate:focus {
+  background-color: #004d40;
+  outline: none;
 }
+
+/* Barra de IMC */
+
+#bmi-bar {
+  display: flex;
+  margin: 25px 0 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+.bar-segment {
+  flex: 1;
+  padding: 8px 5px;
+  text-align: center;
+  color: white;
+}
+
+.bar-segment.underweight {
+  background-color: #4fc3f7; /* azul claro */
+}
+
+.bar-segment.normal {
+  background-color: #43a047; /* verde */
+}
+
+.bar-segment.overweight {
+  background-color: #ffb300; /* amarelo escuro */
+}
+
+.bar-segment.obesity {
+  background-color: #e53935; /* vermelho */
+}
+
+#bmi-indicator {
+  position: relative;
+  height: 8px;
+  background: transparent;
+  margin-top: -22px;
+  margin-left: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  transition: left 0.4s ease;
+  width: 100%;
+}
+
+/* Resultado e descrição */
+
+#infos {
+  text-align: center;
+  margin-top: 15px;
+}
+
+#infos.hidden {
+  display: none;
+}
+
 #bmi {
-    display: flex;
-    align-items: center;
-    flex-direction: center;
-    font-size: 2.25rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #00796b;
 }
-#bmi span:last-child{
-    font-size: 0.875rem;
-    color: #cbd5e1;
-}
+
 #description {
-    width: 15.5rem;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #004d40;
 }
-#more_info {
-    text-align: center;
-    border-top:  1px solid #ffffff34;
-    padding: 1.5rem;
-}
+
 #more_info a {
-    color:#B900F5;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: none;
-    text-decoration: none;
-    transition: color 0.5s;
-}
-#more_info a:hover {
-    color: #cbd5e1;
-
-}
-.hidden {
-    display: none;
-}
-.attention {
-    color: #dc2626;
-}
-.normal {
-    color: #B900F5;
+  display: inline-block;
+  margin-top: 10px;
+  color: #00796b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
-@media screen and (max-width: 1024) {
-    #img {
-        display: none;
-    }
-
+#more_info a:hover,
+#more_info a:focus {
+  color: #004d40;
+  outline: none;
 }
 
-@media screen and (max-width: 1024) {
-    #container {
-        width: 100%;
-        height: 100%;
-    }
+/* Mobile */
 
-    #calculator {
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-        justify-content: center;
-    }
-    
+@media (max-width: 700px) {
+  #container {
+    flex-direction: column;
+  }
+
+  #img, #calculator {
+    flex: 1 1 100%;
+  }
 }
